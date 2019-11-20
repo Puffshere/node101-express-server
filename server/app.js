@@ -1,10 +1,14 @@
-// import files and packages up here
+const express = require('express');
+const logger = require('morgan');
+const data = require('./data')
+
+const app = express();
+
+app.use(logger('combined'))
+
+app.get('/', (req, res) => res.status(200).send(`Hello World`))
+
+app.get('/data', (req, res) => res.status(200).send(data))
 
 
-// create your express server below
-var app;
-
-// add your routes and middleware below
-
-// finally export the express application
 module.exports = app;
